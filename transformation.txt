@@ -1,0 +1,12 @@
+transformation:
+1- dropped negativereasn_gold as it only contained null values
+2- I replaced the null values in the categorical attributes with 'unknown'
+3- I replaced the null values in the numerical attribute with 0
+4- I dropped the tweet coord column as it contained a lot of null values and I wasn't gonna need it in my analysis
+5- I split the date column into data and time 
+
+
+measures:
+NegativeCount = COUNTROWS(FILTER('Tweets', 'Tweets'[airline_sentiment] = "negative"))
+PositiveCount = COUNTROWS(FILTER('Tweets', 'Tweets'[airline_sentiment] = "positive"))
+NeutralCount = COUNTROWS(FILTER('Tweets', 'Tweets'[airline_sentiment] = "neutral"))
